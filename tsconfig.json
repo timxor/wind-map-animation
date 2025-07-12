@@ -2,9 +2,11 @@
   "compilerOptions": {
     "target": "ES2022",
     "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ES2022", // Changed for stability
+    "lib": ["ES2022", "DOM"], // Removed DOM.Iterable if not needed
     "skipLibCheck": true,
+    "esModuleInterop": true, // Added for CommonJS compatibility
+    "isolatedModules": true, // Added for bundler safety
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -17,9 +19,11 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* Optional: Cleaner imports */
+    "baseUrl": "src"
   },
   "include": ["src"]
 }

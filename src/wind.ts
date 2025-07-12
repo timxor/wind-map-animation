@@ -1,4 +1,3 @@
-// wind.ts
 export interface Particle {
   x: number;
   y: number;
@@ -13,7 +12,7 @@ export function createWindParticles(count: number, width: number, height: number
       x: Math.random() * width,
       y: Math.random() * height,
       vx: (Math.random() - 0.5) * 2,
-      vy: (Math.random() - 0.5) * 2
+      vy: (Math.random() - 0.5) * 2,
     });
   }
   return particles;
@@ -33,7 +32,7 @@ export function updateParticles(particles: Particle[], width: number, height: nu
 
 export function drawParticles(gl: WebGLRenderingContext, particles: Particle[]) {
   gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-  gl.clearColor(0, 0, 0, 0.05); // Semi-transparent trail effect
+  gl.clearColor(0, 0, 0, 0.05); // fading trail
   gl.clear(gl.COLOR_BUFFER_BIT);
 
   const vertices = new Float32Array(particles.length * 2);
@@ -73,10 +72,11 @@ export function drawParticles(gl: WebGLRenderingContext, particles: Particle[]) 
   gl.linkProgram(shaderProgram);
   gl.useProgram(shaderProgram);
 
-  const coord = gl.getAttribLocation(shaderProgram, "coordinates");
+  const coord = gl.getAttribLocation(shaderProgram, 'coordinates');
   gl.enableVertexAttribArray(coord);
   gl.vertexAttribPointer(coord, 2, gl.FLOAT, false, 0, 0);
 
   gl.drawArrays(gl.POINTS, 0, particles.length);
   gl.deleteBuffer(buffer);
 }
+

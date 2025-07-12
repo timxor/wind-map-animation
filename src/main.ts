@@ -21,4 +21,3 @@ function render() {
 }
 
 render();
-
