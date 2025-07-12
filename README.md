@@ -3,8 +3,13 @@ wind-map-animation
 
 
 wind map animation repo
-
 https://github.com/timxor/wind-map-animation
+
+
+### screen_recording_animation.gif
+
+
+![screen_recording_animation.gif](./screen_recording_animation.gif)
 
 
 
